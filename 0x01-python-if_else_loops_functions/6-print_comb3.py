@@ -1,8 +1,6 @@
-
 #!/usr/bin/python3
-for a in range(0, 9):
-    for b in range(a+1, 10):
-        between = ", "
-        if a == 8:
-            between = "\n"
-        print("{:d}{:d}".format(a, b), end=between)
+for x in range((0), (9)):
+    for y in range(x + 1, 10):
+        if x != 8 or y != 9:
+            print("{}".format(x) + "" + "{}".format(y), end=", ")
+print("{:02d}".format(89))
