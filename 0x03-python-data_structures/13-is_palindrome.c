@@ -1,26 +1,53 @@
 #include "lists.h"
+#include <stdlib.h>
+#include <stdio.h>
+
+/**
+*add_nodeint - adds a new node at the beginning of a listint_t list
+*@head: head of listint_t
+*@n: int to add in listint_t list
+*Return: address of the new element, or NULL if it failed
+*/
+listint_t *add_nodeint(listint_t **head, const int n)
+{
+	listint_t *new;
+
+	new = malloc(sizeof(listint_t));
+	if (new == NULL)
+		return (NULL);
+	new->n = n;
+	new->next = *head;
+	*head = new;
+	return (new);
+}
+/**
+*is_palindrome - identify if a syngle linked list is palindrome
+*@head: head of listint_t
+*Return: 1 if it is palindrome else 0
+*/
 int is_palindrome(listint_t **head)
 {
-	listint_t *current = *head, *palin = *head;
-	int counter = 0, i = 0, j = 0;
+	listint_t *head2 = *head;
+	listint_t *aux = NULL, *aux2 = NULL;
 
-	if (!*head)
+	if (*head == NULL || head2->next == NULL)
 		return (1);
-
-	while (current)
+	while (head2 != NULL)
 	{
-		current = current->next;
-		counter++;
+		add_nodeint(&aux, head2->n);
+		head2 = head2->next;
 	}
-	current = *head;
-	for (i = 1; i <= counter; i++)
+	aux2 = aux;
+	while (*head != NULL)
 	{
-		for (j = i; j <= counter - i; j++)
-			palin = palin->next;
-		if (current->n != palin->n)
+		if ((*head)->n != aux2->n)
+		{
+			free_listint(aux);
 			return (0);
-		current = current->next;
-		palin = current;
+		}
+		*head = (*head)->next;
+		aux2 = aux2->next;
 	}
+	free_listint(aux);
 	return (1);
 }
