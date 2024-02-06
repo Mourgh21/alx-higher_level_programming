@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-""" Demonstrating Object-Oriented Programming with Python """
+""" Working on oop with python """
+
 
 class Square():
     """Class representing a square"""
@@ -11,4 +12,3 @@ class Square():
            size (int): size of the square
         """
         self.__size = size
-
