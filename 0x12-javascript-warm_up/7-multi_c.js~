@@ -10,7 +10,8 @@ if (isNaN(num)) {
 
 let i = 0;
 
-while (i < num) {
-  console.log('C is fun');
-  i++;
-}
+do {
+    console.log('C is fun');
+
+    i++;
+} while (i < num);

@@ -9,10 +9,9 @@ if (isNaN(num)) {
 }
 
 for (let i = 0; i < num; i++) {
-  let square = '';
   for (let j = 0; j < num; j++) {
-    square += 'X';
+    console.log('X');
   }
 
-  console.log(square);
+  console.log('\n');
 }
