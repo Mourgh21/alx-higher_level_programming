@@ -1,0 +1,12 @@
+#!/usr/bin/node
+
+const factList = require('./100-data').list;
+const factArr = factList.map(factFunc);
+
+function factFunc (currentValue, index) {
+  return currentValue * index;
+}
+
+console.log(factList);
+
+console.log(factArr);
